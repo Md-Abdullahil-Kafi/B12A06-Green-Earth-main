@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Green-Earth</title>
+    <link rel="stylesheet" href="style.css">
     <!-- FontAwesome Linked -->
     <link
       rel="stylesheet"
@@ -46,7 +47,7 @@
               tabindex="0"
               class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              <li><a>About</a></li>
+              <li><a href="#about">About</a></li>
               <li>
                 <a>Gallery</a>
               </li>
@@ -57,7 +58,7 @@
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1 text-white">
-            <li><a>About</a></li>
+            <li><a href="#about">About</a></li>
             <li>
               <a>Gallery</a>
             </li>
@@ -71,7 +72,12 @@
         </div>
       </div>
     </header>
+
+
+    <!-- Main section -->
     <main class="bg-[#15803D10]">
+
+      <!-- Hero Section -->
       <section class="hero-section bg-[#CFF0DC] h-[383px] [background-image:url(assets/hero-leaf1.png),url(assets/hero-leaf2.png)] bg-no-repeat [background-position:left,right]">   
         <div class="max-w-[627px] mx-auto pt-24 text-center space-y-3">
             <h1 class="font-bold text-4xl ">Plant a Tree, Grow a Future</h1>
@@ -83,119 +89,50 @@
         </div>
       </section>
 
+      <!-- Choose A Plant Section -->
       <section class="Choose_Your_Trees my-24 max-w-11/12 mx-auto">
         <h1 class="text-center font-bold text-3xl mb-10">Choose Your Trees</h1>
         <div class="main-categories grid lg:grid-cols-12 gap-7">
+
+          <!-- Modal Section -->
+
+          <!-- Open the modal using ID.showModal() method -->
+            <dialog id="my_modal_2" class="modal">
+            <div class="modal-box" id="modalBox">
+            </div>
+            <form method="dialog" class="modal-backdrop">
+              <button>close</button>
+            </form>
+            </dialog>
+
+          <!-- Categories -->
              <div class="categories  col-span-2 rounded-sm lg:block hidden">
                 <h1 class="font-bold text-xl">Categories</h1>
-                <ul class="items font-bold space-y-2  mt-2">
-                    <li class="bg-green-700 py-1 px-3 text-white rounded-sm">List1</li>
-                    <li class="bg-green-700 py-1 px-3 text-white rounded-sm">List1</li>
-                    <li class="bg-green-700 py-1 px-3 text-white rounded-sm">List1</li>
-                    <li class="bg-green-700 py-1 px-3 text-white rounded-sm">List1</li>
-                    <li class="bg-green-700 py-1 px-3 text-white rounded-sm">List1</li>
-                    <li class="bg-green-700 py-1 px-3 text-white rounded-sm">List1</li>
-                    <li class="bg-green-700 py-1 px-3 text-white rounded-sm">List1</li>
-                </ul>
+                <ul id="categories" class="items font-bold space-y-2  mt-2"></ul>
              </div> 
 
+
+             <!-- Plant Container -->
              <div class="ChoosePlant col-span-8 text-center">
-                <div class="plants grid lg:grid-cols-3 grid-cols-1 gap-7">
-                    <div class="card bg-white p-4 text-start space-y-3">
-                        <img class="mx-auto" src="assets/about.png" alt="Card Image">
-                        <h1 class="font-bold text-start">Mango Tree</h1>
-                        <p class="opacity-80 text-[12px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quia!</p>
-                        <div class="price">
-                        <div class="type flex justify-between">
-                            <p class="py-1 px-3 font-semibold bg-[#DCFCE7] text-[#15803D] rounded-full">Fruite Tree</p>
-                            <p class="font-semibold"><i class="fa-solid fa-bangladeshi-taka-sign"></i><span>500</span></p>
-                        </div>
-                        </div>
-                        <div class="addToCart">
-                            <button class="bg-[#15803D] btn font-bold text-center rounded-full w-full  text-white">Add To Cart</button>
-                        </div>
-                    </div>
-                    <div class="card bg-white p-4 text-start space-y-3">
-                        <img class="mx-auto" src="assets/about.png" alt="Card Image">
-                        <h1 class="font-bold text-start">Mango Tree</h1>
-                        <p class="opacity-80 text-[12px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quia!</p>
-                        <div class="price">
-                        <div class="type flex justify-between">
-                            <p class="py-1 px-3 font-semibold bg-[#DCFCE7] text-[#15803D] rounded-full">Fruite Tree</p>
-                            <p class="font-semibold"><i class="fa-solid fa-bangladeshi-taka-sign"></i><span>500</span></p>
-                        </div>
-                        </div>
-                        <div class="addToCart">
-                            <button class="bg-[#15803D] btn font-bold text-center rounded-full w-full  text-white">Add To Cart</button>
-                        </div>
-                    </div>
-                    <div class="card bg-white p-4 text-start space-y-3">
-                        <img class="mx-auto" src="assets/about.png" alt="Card Image">
-                        <h1 class="font-bold text-start">Mango Tree</h1>
-                        <p class="opacity-80 text-[12px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quia!</p>
-                        <div class="price">
-                        <div class="type flex justify-between">
-                            <p class="py-1 px-3 font-semibold bg-[#DCFCE7] text-[#15803D] rounded-full">Fruite Tree</p>
-                            <p class="font-semibold"><i class="fa-solid fa-bangladeshi-taka-sign"></i><span>500</span></p>
-                        </div>
-                        </div>
-                        <div class="addToCart">
-                            <button class="bg-[#15803D] btn font-bold text-center rounded-full w-full  text-white">Add To Cart</button>
-                        </div>
-                    </div>
-                    <div class="card bg-white p-4 text-start space-y-3">
-                        <img class="mx-auto" src="assets/about.png" alt="Card Image">
-                        <h1 class="font-bold text-start">Mango Tree</h1>
-                        <p class="opacity-80 text-[12px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quia!</p>
-                        <div class="price">
-                        <div class="type flex justify-between">
-                            <p class="py-1 px-3 font-semibold bg-[#DCFCE7] text-[#15803D] rounded-full">Fruite Tree</p>
-                            <p class="font-semibold"><i class="fa-solid fa-bangladeshi-taka-sign"></i><span>500</span></p>
-                        </div>
-                        </div>
-                        <div class="addToCart">
-                            <button class="bg-[#15803D] btn font-bold text-center rounded-full w-full  text-white">Add To Cart</button>
-                        </div>
-                    </div>
-                    <div class="card bg-white p-4 text-start space-y-3">
-                        <img class="mx-auto" src="assets/about.png" alt="Card Image">
-                        <h1 class="font-bold text-start">Mango Tree</h1>
-                        <p class="opacity-80 text-[12px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quia!</p>
-                        <div class="price">
-                        <div class="type flex justify-between">
-                            <p class="py-1 px-3 font-semibold bg-[#DCFCE7] text-[#15803D] rounded-full">Fruite Tree</p>
-                            <p class="font-semibold"><i class="fa-solid fa-bangladeshi-taka-sign"></i><span>500</span></p>
-                        </div>
-                        </div>
-                        <div class="addToCart">
-                            <button class="bg-[#15803D] btn font-bold text-center rounded-full w-full  text-white">Add To Cart</button>
-                        </div>
-                    </div>
-                    <div class="card bg-white p-4 text-start space-y-3">
-                        <img class="mx-auto" src="assets/about.png" alt="Card Image">
-                        <h1 class="font-bold text-start">Mango Tree</h1>
-                        <p class="opacity-80 text-[12px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quia!</p>
-                        <div class="price">
-                        <div class="type flex justify-between">
-                            <p class="py-1 px-3 font-semibold bg-[#DCFCE7] text-[#15803D] rounded-full">Fruite Tree</p>
-                            <p class="font-semibold"><i class="fa-solid fa-bangladeshi-taka-sign"></i><span>500</span></p>
-                        </div>
-                        </div>
-                        <div class="addToCart">
-                            <button class="bg-[#15803D] btn font-bold text-center rounded-full w-full  text-white">Add To Cart</button>
-                        </div>
-                    </div>
+                <span id="spinner" class=" loading loading-dots loading-xl"></span>
+                <div id="cardContainer" class="plants grid lg:grid-cols-3 grid-cols-1 gap-7">
+                  
                 </div>
              </div>
 
+
+
+             <!-- Card Container -->
              <div class="yourCart bg-white col-span-2 rounded-sm p-2 lg:block hidden">
                 <h1 class="font-bold text-xl ">Your Cart</h1>
              </div>
+
+
         </div>
       </section>
 
-
-      <section class="mb-24">
+      <!-- About Sections -->
+      <section id="about" class="mb-24">
         <h1 class="text-center font-bold text-3xl mb-10">About the Campaign</h1>
         <div class="flex gap-7 max-w-[1090px] mx-auto items-center flex-col lg:flex-row">
             <div class="img rounded-lg overflow-hidden">
@@ -213,7 +150,7 @@
       </section>
 
 
-
+      <!-- Company Impact Section -->
       <section class="bg-[#CFF0DC] lg:p-24 p-3">
         <h1 class="text-center text-3xl font-bold">Our Impact</h1>
         <div class="grid lg:grid-cols-3 grid-cols-1 gap-12 my-10">
@@ -232,7 +169,7 @@
         </div>
       </section>
 
-
+      <!-- Customer FeedBack Section-->
       <section class="bg-[#166534] lg:p-24 p-3">
         <h1 class="text-white text-center font-semibold text-[32px] mb-10">Plant A Tree Today</h1>
         <form action="" class="grid grid-cols-1 max-w-[650px] mx-auto bg-[#15803D] p-10 gap-3 rounded-md focus:outline-none">
@@ -251,7 +188,7 @@
       </section>
     </main>
 
-
+<!-- Footer Seection -->
     <footer class="bg-[#14532D] py-6 text-center text-white">
         <p>© 2025 Green Earth. All Rights Reserved.</p>
     </footer>
