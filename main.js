@@ -17,9 +17,6 @@ const loadCategories=(categories)=>{
 }
 categoryLoad();
 
-
-
-
 // Load Plants
 const defaultPlants = ()=>{
     fetch("https://openapi.programming-hero.com/api/plants")
@@ -70,7 +67,7 @@ const detailView = (card)=>{
                             </div>
                             </div>
                             <div class="addToCart">
-                                <button onclick="my_modal_2.showModal()" class="bg-[#15803D] btn font-bold text-center rounded-full w-full  text-white">Add To Cart</button>
+                                <button onclick="" class="bg-[#15803D] btn font-bold text-center rounded-full w-full  text-white">Add To Cart</button>
                             </div>
                             </div>
     `
@@ -94,13 +91,26 @@ const loadPlants = (plants) => {
                             </div>
                             </div>
                             <div class="addToCart">
-                                <button onclick="my_modal_2.showModal()" class="bg-[#15803D] btn font-bold text-center rounded-full w-full  text-white">Add To Cart</button>
+                                <button onclick="addToCart(${plant.price},'${plant.name}')" class="bg-[#15803D] btn font-bold text-center rounded-full w-full  text-white">Add To Cart</button>
                             </div>
                             </div>
         `;
         cardContainer.append(newDiv);
         spinner.classList.add('hidden');
     }
-
+    
 }
+
+let cartItems = [];
+const addToCart = (price, name) =>{
+    const data = {
+        productName : name,
+        productPrice : price
+    }
+    cartItems.push(data);
+}
+let cartContainer = document.getElementById('cartContainer');
+cartContainer.innerHTML = '';
+
+
 // defaultPlants();
