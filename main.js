@@ -102,15 +102,32 @@ const loadPlants = (plants) => {
 }
 
 let cartItems = [];
+let totalPrice = 0;
 const addToCart = (price, name) =>{
     const data = {
         productName : name,
-        productPrice : price
+        productPrice : price,
     }
     cartItems.push(data);
+    let cartContainer = document.getElementById('cartContainer');
+    cartContainer.innerHTML = '';
+    for(const cart of cartItems){
+        const newCart = document.createElement('div');
+        newCart.innerHTML = `
+                    <div class="cart flex justify-between items-center bg-[#F0FDF4] rounded-lg p-2 my-3">
+                    <div class="title ">
+                      <h1 class="font-semibold">${cart.productName}</h1>
+                      <p><i class="fa-solid fa-bangladeshi-taka-sign"></i><span class="font-semibold">${cart.productPrice}</span></p>
+                    </div>
+                    <button><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    </div>
+        `
+        cartContainer.append(newCart);
+    }
+
+    // console.log(cartItems)
 }
-let cartContainer = document.getElementById('cartContainer');
-cartContainer.innerHTML = '';
 
 
 // defaultPlants();
