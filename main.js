@@ -1,61 +1,59 @@
-const spinner = document.getElementById('spinner');
+const spinner = document.getElementById("spinner");
 
 // Load Category
-const categoryLoad = ()=>{
-    fetch("https://openapi.programming-hero.com/api/categories")
-    .then(res=> res.json())
-    .then(data=> loadCategories(data.categories));
-}
-const loadCategories=(categories)=>{
-    const catSection = document.getElementById('categories');
-    catSection.innerHTML = "";
-    for(const category of categories){
-        const newLi = document.createElement('li');
-        newLi.innerHTML = `<button id="categoryBtn${category.id}" onclick="loadTrees(${category.id})" class="bg-gray-400 py-1 px-3 text-white rounded-sm hover:bg-green-700 cursor-pointer w-full btn categoryBtn">${category.category_name}</button>`;
-        catSection.append(newLi);
-    }
-}
+const categoryLoad = () => {
+  fetch("https://openapi.programming-hero.com/api/categories")
+    .then((res) => res.json())
+    .then((data) => loadCategories(data.categories));
+};
+const loadCategories = (categories) => {
+  const catSection = document.getElementById("categories");
+  catSection.innerHTML = "";
+  for (const category of categories) {
+    const newLi = document.createElement("li");
+    newLi.innerHTML = `<button id="categoryBtn${category.id}" onclick="loadTrees(${category.id})" class="bg-gray-400 py-1 px-3 text-white rounded-sm hover:bg-green-700 cursor-pointer w-full btn categoryBtn">${category.category_name}</button>`;
+    catSection.append(newLi);
+  }
+};
 categoryLoad();
 
 // Load Plants
-const defaultPlants = ()=>{
-    fetch("https://openapi.programming-hero.com/api/plants")
-    .then(res => res.json())
-    .then(data => loadPlants(data.plants))
-}
+const defaultPlants = () => {
+  fetch("https://openapi.programming-hero.com/api/plants")
+    .then((res) => res.json())
+    .then((data) => loadPlants(data.plants));
+};
 // Load Trees
-const loadTrees = (id)=>{
-    const cardContainer = document.getElementById('cardContainer');
-    cardContainer.innerHTML='';
-    spinner.classList.remove('hidden');
-    fetch(`https://openapi.programming-hero.com/api/category/${id}`)
-    .then(res => res.json())
-    .then(data => {
-        const categoryBtn = document.getElementById(`categoryBtn${id}`)
-        const allBtns = document.getElementsByClassName('categoryBtn');
-        for(const btn of allBtns){
-            btn.classList.remove('active')
-        }
-        categoryBtn.classList.add('active');
-        // console.log(categoryBtn)
-        loadPlants(data.plants)
-      
-    })
-    
-}
+const loadTrees = (id) => {
+  const cardContainer = document.getElementById("cardContainer");
+  cardContainer.innerHTML = "";
+  spinner.classList.remove("hidden");
+  fetch(`https://openapi.programming-hero.com/api/category/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      const categoryBtn = document.getElementById(`categoryBtn${id}`);
+      const allBtns = document.getElementsByClassName("categoryBtn");
+      for (const btn of allBtns) {
+        btn.classList.remove("active");
+      }
+      categoryBtn.classList.add("active");
+      // console.log(categoryBtn)
+      loadPlants(data.plants);
+    });
+};
 
 // Card Details
 
-const cardDetails = async(id)=>{
-    const url= `https://openapi.programming-hero.com/api/plant/${id}`
-    const res = await fetch(url) 
-    const details = await res.json();
-    detailView(details.plants);
-}
+const cardDetails = async (id) => {
+  const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+  const res = await fetch(url);
+  const details = await res.json();
+  detailView(details.plants);
+};
 
-const detailView = (card)=>{
-    const modalBox = document.getElementById('modalBox');
-    modalBox.innerHTML = `
+const detailView = (card) => {
+  const modalBox = document.getElementById("modalBox");
+  modalBox.innerHTML = `
     <div class="card bg-white p-4 text-start space-y-3">
                             <img class="mx-auto rounded-lg  aspect-3/2 object-cover" src="${card.image}" alt="Card Image">
                             <h1 onclick="cardDetails(${card.id})" class="font-bold text-start">${card.name}</h1>
@@ -70,16 +68,16 @@ const detailView = (card)=>{
                                 <button onclick="" class="bg-[#15803D] btn font-bold text-center rounded-full w-full  text-white">Add To Cart</button>
                             </div>
                             </div>
-    `
-    my_modal_2.showModal();
-}
+    `;
+  my_modal_2.showModal();
+};
 
 const loadPlants = (plants) => {
-    const cardContainer = document.getElementById('cardContainer');
-    cardContainer.innerHTML='';
-    for(const plant of plants){
-        const newDiv = document.createElement('div')
-        newDiv.innerHTML = `
+  const cardContainer = document.getElementById("cardContainer");
+  cardContainer.innerHTML = "";
+  for (const plant of plants) {
+    const newDiv = document.createElement("div");
+    newDiv.innerHTML = `
                             <div class="card bg-white p-4 text-start space-y-3">
                             <img class="mx-auto rounded-lg  aspect-3/2 object-cover" src="${plant.image}" alt="Card Image">
                             <h1 onclick="cardDetails(${plant.id})" class="font-bold text-start hover:text-green-600 cursor-pointer">${plant.name}</h1>
@@ -95,39 +93,60 @@ const loadPlants = (plants) => {
                             </div>
                             </div>
         `;
-        cardContainer.append(newDiv);
-        spinner.classList.add('hidden');
-    }
-    
-}
-
+    cardContainer.append(newDiv);
+    spinner.classList.add("hidden");
+  }
+};
+// Cart Item Add Or Remove or Add & Reduce Price in total. 
 let cartItems = [];
 let totalPrice = 0;
-const addToCart = (price, name) =>{
-    const data = {
-        productName : name,
-        productPrice : price,
-    }
-    cartItems.push(data);
-    let cartContainer = document.getElementById('cartContainer');
-    cartContainer.innerHTML = '';
-    for(const cart of cartItems){
-        const newCart = document.createElement('div');
-        newCart.innerHTML = `
-                    <div class="cart flex justify-between items-center bg-[#F0FDF4] rounded-lg p-2 my-3">
-                    <div class="title ">
-                      <h1 class="font-semibold">${cart.productName}</h1>
-                      <p><i class="fa-solid fa-bangladeshi-taka-sign"></i><span class="font-semibold">${cart.productPrice}</span></p>
-                    </div>
-                    <button><i class="fa-solid fa-xmark"></i></button>
-                    </div>
-                    </div>
-        `
-        cartContainer.append(newCart);
-    }
+const cartContainer = document.getElementById("cartContainer");
+const sumElement = document.getElementById("sum");
+function renderCart() {
+  cartContainer.innerHTML = "";
 
-    // console.log(cartItems)
+  cartItems.forEach((cart, index) => {
+    const newCart = document.createElement("div");
+    newCart.classList.add(
+      "cart",
+      "flex",
+      "justify-between",
+      "items-center",
+      "bg-[#F0FDF4]",
+      "rounded-lg",
+      "p-2",
+      "my-3"
+    );
+    newCart.innerHTML = `
+            <div class="title">
+              <h1 class="font-semibold">${cart.productName}</h1>
+              <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>
+                <span class="font-semibold">${cart.productPrice}</span>
+              </p>
+            </div>
+            <button class="close" data-index="${index}">
+              <i class="fa-solid fa-xmark"></i>
+            </button>         
+        `;
+    cartContainer.append(newCart);
+  });
+  totalPrice = cartItems.reduce((sum, item) => sum + item.productPrice, 0);
+  sumElement.innerText = totalPrice;
 }
+const addToCart = (price, name) => {
+  const data = {
+    productName: name,
+    productPrice: price,
+  };
+  cartItems.push(data);
+  renderCart(); 
+};
+cartContainer.addEventListener("click", function (event) {
+  if (event.target.closest(".close")) {
+    const index = event.target.closest(".close").getAttribute("data-index");
+    cartItems.splice(index, 1); 
+    renderCart();
+  }
+});
 
-
-// defaultPlants();
+defaultPlants();
