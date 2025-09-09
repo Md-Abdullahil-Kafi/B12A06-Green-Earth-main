@@ -150,4 +150,4 @@ function toggle(){
 
 }
 
-// defaultPlants();
+defaultPlants();
