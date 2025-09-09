@@ -64,9 +64,6 @@ const detailView = (card) => {
                                 <p class="font-semibold"><i class="fa-solid fa-bangladeshi-taka-sign"></i><span>${card.price}</span></p>
                             </div>
                             </div>
-                            <div class="addToCart">
-                                <button onclick="" class="bg-[#15803D] btn font-bold text-center rounded-full w-full  text-white">Add To Cart</button>
-                            </div>
                             </div>
     `;
   my_modal_2.showModal();
@@ -149,4 +146,8 @@ cartContainer.addEventListener("click", function (event) {
   }
 });
 
-defaultPlants();
+function toggle(){
+  
+}
+
+// defaultPlants();

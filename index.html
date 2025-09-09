@@ -52,6 +52,7 @@
                 <a>Gallery</a>
               </li>
               <li><a>Plant A Tree</a></li>
+              <li><a>Categories</a></li>
             </ul>
           </div>
           <a class="text-xl text-white font-bold">Green Earth</a>
@@ -65,10 +66,9 @@
             <li><a>Plant A Tree</a></li>
           </ul>
         </div>
-        <div class="navbar-end">
-          <a class="btn rounded-full text-[#15803D] bg-[#FACC15]"
-            >Plant A Tree</a
-          >
+        <div class="navbar-end space-x-3">
+          <a href="#donate" class="btn rounded-full text-[#15803D] bg-[#FACC15]">Plant A Tree</a>
+          <button onclick="toggle()" class="text-white text-2xl btn btn-primary bg-transparent border-none dropdown dropdown-bottom lg:hidden"><i class="fa-solid fa-cart-plus"></i></button>
         </div>
       </div>
     </header>
@@ -78,37 +78,36 @@
     <main class="bg-[#15803D10]">
 
       <!-- Hero Section -->
-      <section class="hero-section bg-[#CFF0DC] h-[383px] [background-image:url(assets/hero-leaf1.png),url(assets/hero-leaf2.png)] bg-no-repeat [background-position:left,right]">   
-        <div class="max-w-[627px] mx-auto pt-24 text-center space-y-3">
+      <section class="hero-section bg-[#CFF0DC] lg:h-[383px]  lg:[background-image:url(assets/hero-leaf1.png),url(assets/hero-leaf2.png)] bg-no-repeat [background-position:left,right] ">   
+        
+        <div class="max-w-[627px] mx-auto lg:pt-24 p-5 text-center space-y-3">
             <h1 class="font-bold text-4xl ">Plant a Tree, Grow a Future</h1>
         <p class="text-gray-600">
           Join our mission to plant 1 million trees and make the Earth greener
           for future generations.
         </p>
-        <a class="btn rounded-full text-[#15803D] bg-[#FACC15]">Get Involved</a>
+        <a class="btn rounded-full text-[#15803D] bg-[#FACC15]" href="#donate">Get Involved</a>
         </div>
       </section>
-
+      <!-- Modal Section -->
+        <dialog id="my_modal_2" class="modal">
+        <div class="modal-box" id="modalBox">
+        </div>
+        <form method="dialog" class="modal-backdrop">
+          <button>close</button>
+        </form>
+        </dialog>
+      
       <!-- Choose A Plant Section -->
       <section class="Choose_Your_Trees my-24 max-w-11/12 mx-auto">
         <h1 class="text-center font-bold text-3xl mb-10">Choose Your Trees</h1>
-        <div class="main-categories grid lg:grid-cols-12 gap-7">
+        <div class="main-categories lg:grid lg:grid-cols-12 lg:gap-7">
 
-          <!-- Modal Section -->
-
-          <!-- Open the modal using ID.showModal() method -->
-            <dialog id="my_modal_2" class="modal">
-            <div class="modal-box" id="modalBox">
-            </div>
-            <form method="dialog" class="modal-backdrop">
-              <button>close</button>
-            </form>
-            </dialog>
 
           <!-- Categories -->
-             <div class="categories  col-span-2 rounded-sm lg:block hidden">
-                <h1 class="font-bold text-xl">Categories</h1>
-                <ul id="categories" class="items font-bold space-y-2  mt-2"></ul>
+             <div class="lg:col-span-2 rounded-sm ">
+                <h1 class="font-bold text-xl text-center">Categories</h1>
+                <ul id="categories" class="items font-bold space-y-2 mt-2 flex flex-wrap justify-center lg:flex-col"></ul>
              </div> 
 
 
@@ -122,8 +121,8 @@
 
 
 
-             <!-- Card Container -->
-             <div class="yourCart bg-white col-span-3 rounded-sm p-2 lg:block hidden">
+             <!-- Cart Container -->
+             <div class=" yourCart bg-white col-span-3 rounded-sm p-2 lg:block hidden">
                 <h1 class="font-bold text-xl ">Your Cart</h1>
                 <div class="totalPrice flex justify-between">
                   <h1 class="font-bold">Total = </h1>
@@ -175,7 +174,7 @@
       </section>
 
       <!-- Customer FeedBack Section-->
-      <section class="bg-[#166534] lg:p-24 p-3">
+      <section id="donate" class="bg-[#166534] lg:p-24 p-3">
         <h1 class="text-white text-center font-semibold text-[32px] mb-10">Plant A Tree Today</h1>
         <form action="" class="grid grid-cols-1 max-w-[650px] mx-auto bg-[#15803D] p-10 gap-3 rounded-md focus:outline-none">
             <input required type="text" placeholder="Your Name" class="bg-white p-3 border-0 rounded-md focus:outline-none">
