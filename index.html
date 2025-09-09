@@ -52,7 +52,6 @@
                 <a>Gallery</a>
               </li>
               <li><a>Plant A Tree</a></li>
-              <li><a>Categories</a></li>
             </ul>
           </div>
           <a class="text-xl text-white font-bold">Green Earth</a>
@@ -68,7 +67,6 @@
         </div>
         <div class="navbar-end space-x-3">
           <a href="#donate" class="btn rounded-full text-[#15803D] bg-[#FACC15]">Plant A Tree</a>
-          <button onclick="toggle()" class="text-white text-2xl btn btn-primary bg-transparent border-none dropdown dropdown-bottom lg:hidden"><i class="fa-solid fa-cart-plus"></i></button>
         </div>
       </div>
     </header>
@@ -99,7 +97,7 @@
         </dialog>
       
       <!-- Choose A Plant Section -->
-      <section class="Choose_Your_Trees my-24 max-w-11/12 mx-auto">
+      <section class="Choose_Your_Trees my-24 max-w-11/12 mx-auto ">
         <h1 class="text-center font-bold text-3xl mb-10">Choose Your Trees</h1>
         <div class="main-categories lg:grid lg:grid-cols-12 lg:gap-7">
 
@@ -112,7 +110,7 @@
 
 
              <!-- Plant Container -->
-             <div class="ChoosePlant col-span-7 text-center">
+             <div class="ChoosePlant lg:col-span-7 text-center lg:h-[80vh] lg:overflow-y-scroll">
                 <span id="spinner" class=" loading loading-dots loading-xl"></span>
                 <div id="cardContainer" class="plants grid lg:grid-cols-3 grid-cols-1 gap-7">
                   
@@ -122,17 +120,14 @@
 
 
              <!-- Cart Container -->
-             <div class=" yourCart bg-white col-span-3 rounded-sm p-2 lg:block hidden">
+             <div class=" yourCart bg-white lg:col-span-3 rounded-sm p-2 lg:h-[80vh] ">
                 <h1 class="font-bold text-xl ">Your Cart</h1>
                 <div class="totalPrice flex justify-between">
                   <h1 class="font-bold">Total = </h1>
                   <h1><i class="fa-solid fa-bangladeshi-taka-sign"></i><span id="sum" class="font-semibold">0</span></h1>
                 </div>
-
-                <div class="" id="cartContainer"></div>
-
-
-        </div>
+                <div class=" lg:h-[70vh] overflow-y-scroll" id="cartContainer"></div>
+              </div>
       </section>
 
       <!-- About Sections -->

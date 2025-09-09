@@ -147,7 +147,7 @@ cartContainer.addEventListener("click", function (event) {
 });
 
 function toggle(){
-  
+
 }
 
 // defaultPlants();
